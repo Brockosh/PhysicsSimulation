@@ -5,6 +5,7 @@
 #include "glm/ext.hpp"
 #include <Gizmos.h>
 #include "PhysicsScene.h"
+#include "Sphere.h"
 
 Application2D::Application2D() {
 
@@ -116,7 +117,16 @@ bool Application2D::startup() {
 	m_font = new aie::Font("./font/consolas.ttf", 32);
 
 	m_physicsScene = new PhysicsScene();
+	m_physicsScene->setGravity(glm::vec2(0, 0));
 	m_physicsScene->setTimeStep(0.01f);
+
+	m_physicsScene->setGravity(glm::vec2(0, 0));  // turn off gravity
+
+	
+	Sphere* ball;
+	ball = new Sphere(glm::vec2(-40, 0), glm::vec2(10, 30), 3.0f, 1, glm::vec4(1, 0, 0, 1));
+	m_physicsScene->addActor(ball);
+
 	return true;
 }
 
