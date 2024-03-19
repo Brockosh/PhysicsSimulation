@@ -16,4 +16,15 @@ void Sphere::draw()
 {
     int segments = 14;
     aie::Gizmos::add2DCircle(m_position, m_radius, segments, m_colour);
+    //glm::vec2 endPos = m_position + m_velocity;
+    //aie::Gizmos::add2DLine(m_position, endPos, glm::vec4(0, 1, 0, 1));
+ 
+}
+
+void Sphere::debugDraw(aie::Renderer2D* renderer)
+{
+    //int segments = 14;
+    //aie::Gizmos::add2DCircle(m_position, m_radius, segments, m_colour);
+    glm::vec2 endPos = m_position + m_velocity; 
+    aie::Gizmos::add2DLine(m_position, endPos, glm::vec4(0, 1, 0, 1));
 }

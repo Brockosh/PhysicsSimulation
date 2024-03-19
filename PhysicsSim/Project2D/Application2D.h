@@ -8,6 +8,8 @@ class PhysicsScene;
 class Application2D : public aie::Application {
 public:
 
+	bool m_debugMode = false;
+
 	Application2D();
 	virtual ~Application2D();
 

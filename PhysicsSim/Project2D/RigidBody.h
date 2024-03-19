@@ -16,8 +16,10 @@ public:
     glm::vec2 getPosition() { return m_position; }
     float getOrientatation() { return m_orientation; }
     glm::vec2 getVelocity() { return m_velocity; }
-    float getMass() { return m_mass; }
 
+    void setVelocity(glm::vec2 newVelocity) { m_velocity = newVelocity; }
+    float getMass() { return m_mass; }
+    void resolveCollision(Rigidbody* actor2);
 protected:
     glm::vec2 m_position;
     glm::vec2 m_velocity;

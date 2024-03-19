@@ -1,11 +1,12 @@
 #pragma once
 #include "glm/glm.hpp"
+#include "Renderer2D.h"
 
 enum ShapeType
 {
-    PlANE = 0,
+    PLANE = 0,
     SPHERE,
-    BOX
+    SHAPE_COUNT
 };
 
 class PhysicsObject
@@ -18,7 +19,9 @@ protected:
 public:
     virtual void fixedUpdate(glm::vec2 gravity, float timeStep) = 0;
     virtual void draw() = 0;
+    virtual void debugDraw(aie::Renderer2D* renderer) = 0;
     virtual void resetPosition() {};
+    ShapeType getShapeID() const { return m_shapeID; }
 
 protected:
     ShapeType m_shapeID;

@@ -20,10 +20,18 @@ public:
 
 	void setTimeStep(const float timeStep) { m_timeStep = timeStep; }
 	float getTimeStep() const { return m_timeStep; }
+	const std::vector<PhysicsObject*>& getAllObjects()const;
+	
 
+	static bool plane2Plane(PhysicsObject*, PhysicsObject*);
+	static bool plane2Sphere(PhysicsObject*, PhysicsObject*);
+	static bool sphere2Plane(PhysicsObject*, PhysicsObject*);
 	static bool sphere2Sphere(PhysicsObject*, PhysicsObject*);
 
+
+
 protected:
+
 	glm::vec2 m_gravity;
 	float m_timeStep;
 	std::vector<PhysicsObject*> m_actors;
